@@ -1,0 +1,59 @@
+﻿@model List<Brand>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-6 text-uppercase">
+            <h2>BrandList</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="/BrandController1/create" class="btn btn-primary"><i class="bi bi-plus-circle-fill p-2"></i>Create</a>
+        </div>
+    </div>
+    <hr />
+    @if(Model.Count>0){
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Established Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.EstablishedYear</td>
+                        <td class="d-flex align-items-center justify-content-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="BrandController1" asp-action="Details" asp-route-id="@item.Id"
+                           class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Details">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+                                <a asp-controller="BrandController1" asp-action="Edit" asp-route-id="@item.Id"
+                           class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Details">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-controller="BrandController1" asp-action="Delete" asp-route-id="@item.Id"
+                           class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Details">
+                                    <i class="bi bi-trash"></i>
+                                </a>    
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else{
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="text-center text-warning text-uppercase pt-4">No Records to Show </h5>
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>

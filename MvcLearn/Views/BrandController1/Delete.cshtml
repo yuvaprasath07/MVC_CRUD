@@ -1,0 +1,36 @@
+﻿@model Brand
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-uppercase text-center">Delete Brand</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 border-1 border">
+            <form method="post" enctype="multipart/form-data">
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Name</label><br />
+                    <input asp-for="@Model.Name" class="form-control" disabled />
+
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Established Year</label><br />
+                    <input asp-for="@Model.EstablishedYear" class="form-control" disabled />
+                </div>
+                <div class="mb-3 mt-3">
+                    <a asp-controller="BrandController1" asp-action="Index" class="btn btn-danger">Back</a>
+                    <button type="submit" class="btn btn-warning">Delete</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            @if (Model.BrandLogo != null)
+            {
+
+                <img src="@Model.BrandLogo" width="100%" />
+            }
+        </div>
+    </div>
+</div>
